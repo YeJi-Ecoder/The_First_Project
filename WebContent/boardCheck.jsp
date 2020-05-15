@@ -34,7 +34,7 @@ function listenForDoubleClickLink(element) {
 <!-- 글쓰기 기능 -->
 <div class="container" id="main">
 	<form method="post" action="./delete.tb">
-		<a href="/myCartFinal_RSA/boardWrite.jsp"><img src="images/logo-button_tb.png"
+		<a href="/The_First_Project/boardWrite.jsp"><img src="images/logo-button_tb.png"
 			class="img-responsive" id="logo-button" /></a>
 		<div class="panel panel-default" class="col-md-12">
 			<div class="panel-body" style="text-align: center;">
