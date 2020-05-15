@@ -16,7 +16,7 @@
 <%
 		} else{
 	%>
-		<a href="/04_MyCartFinal/encryptAction.go">로그인 페이지 가기</a>
+		<a href="/The_First_Project/encryptAction.go">로그인 페이지 가기</a>
 <%
 		}
 %>
