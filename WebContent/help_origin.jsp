@@ -91,13 +91,13 @@
 				}
 				if (securedUsername != null) {
 			%>
-				<form action="/myCartFinal_RSA/boardWrite.jsp">
+				<form action="/The_First_Project/boardWrite.jsp">
 					<input type="submit" value="지금 시작하기" id="home" />
 				</form>
 			<%
 				} else{
 			%>
-				<form action="/myCartFinal_RSA/encryptAction.go">
+				<form action="/The_First_Project/encryptAction.go">
 					<input type="submit" value="지금 시작하기" id="home" />
 				</form>
 			<%
