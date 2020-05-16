@@ -37,7 +37,7 @@ MyCart 는 한정판 프리미엄 패션물품 판매 서비스인 [StockX](http
 
 ## 설계 및 기능 소개
 <순서도>
-![순서도](Meetings/191218_UI_v1.0_SJ.png)
+![순서도](Meetings/191203_UI회의/191203_UI_v1.0_SJ.png)
 
 ## 기여한 부분
   - 회원 관리와 관련된 src/user.member에 속한 로그인, 회원가입 자바 모듈
