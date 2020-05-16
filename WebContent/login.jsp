@@ -184,7 +184,7 @@ function submitEncryptedForm(userID, password, rsaPublicKeyModulus, rsaPublicKey
 	    }
 	    
 	    if(!re2.test($("#Password").val())){ 
-	    	alert("비밀번호는 8 ~ 16자의 영문 대소문자와 숫자의 조합으로 입력해주세요."); 
+	    	alert("비밀번호는 8 ~ 16자의 영문 대소문자와 숫자, 특수문자 모두를 포함한 조합으로 입력해주세요."); 
 	    	$("#Password").val(""); 
 	    	$("#Password").focus(); 
 	    	return false; 
