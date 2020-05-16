@@ -17,27 +17,6 @@
 
 
 <script type="text/javascript">
-		/* 로그인 후 뒤로가기 방지하는 코드 */
-		window.history.forward();
-
-		function noBack() {
-
-			window.history.forward();
-
-		}
-
-</script>
-<!-- 	
-<meta http-equiv="Cache-Control" content="No-Cache"> 
-<meta http-equiv="Pragma" content="No-Cache">
-
-<%
-response.setHeader("Cache-Control","no-store"); // HTTP/1.1
-response.setHeader("Pragma","no-cache"); // HTTP/1.0
-response.setDateHeader("Expires", -1);
-%>
--->
-<script type="text/javascript">
 
         jQuery(document).ready(function() {
               /* $('#myModal').onclick(); */
@@ -69,36 +48,6 @@ response.setDateHeader("Expires", -1);
 </script>
 
 
-<!-- 	
-<script type="text/javascript">
-var $userID = $("#hiddenForm input[name='userID']");
-var $password = $("#hiddenForm input[name='password']");
-
-// Server로부터 받은 공개키 입력
-var rsa = new RSAKey();
-var rsaPublicKeyModulus = document.getElementById("rsaPublicKeyModulus").value;
-var rsaPublicKeyExponent = document.getElementById("rsaPublicKeyExponent").value;
-
-rsa.setPublic(rsaPublicKeyModulus, rsaPublicKeyExponent);
-
-$("#LoginForm").submit(function(e) {
-    // 실제 유저 입력 form은 event 취소
-    // javascript가 작동되지 않는 환경에서는 유저 입력 form이 submit 됨
-    // -> Server 측에서 검증되므로 로그인 불가
-    e.preventDefault();
-
-    // 아이디/비밀번호 암호화 후 hidden form으로 submit
-    var userID = $(this).find("#userID").val();
-    var password = $(this).find("#password").val();
-    $userID.val(rsa.encrypt(userID)); // 아이디 암호화
-    $password.val(rsa.encrypt(password)); // 비밀번호 암호화
-    $("#hiddenForm").submit();
-});
-
-</script>
--->
-
-
 <style>
 /* The Modal (background) */
 .modal {
@@ -117,65 +66,10 @@ $("#LoginForm").submit(function(e) {
 	margin-bottom: -50px;
 }
 
-/* #img {
-        	background-image: url("./images/back2.png");
-			width: 1920px;
-			height: 865px;
-		
-			/* display: block;
-			margin: 0 auto;
-        }  */
+
 </style>
 
 <script type="text/javascript">
-/*
-window.onload = function(){
-	function RSAloginForm (){
-		var userID = document.getElementById("userID").value;
-	    var password = document.getElementById("password").value;
-	    if (!userID || !password) {
-	        alert("ID/비밀번호를 입력해주세요.");
-	        return false;
-	    }
-	
-	    try {
-	        var rsaPublicKeyModulus = document.getElementById("rsaPublicKeyModulus").value;
-	        var rsaPublicKeyExponent = document.getElementById("rsaPublicKeyExponent").value;
-	        
-	        var rsa = new RSAKey();
-	        rsa.setPublic(rsaPublicKeyModulus, rsaPublicKeyExponent);
-
-	        // 사용자ID와 비밀번호를 RSA로 암호화한다.
-	        var securedUserID = rsa.encrypt(userID);
-	        var securedPassword = rsa.encrypt(password);
-
-	        // POST 로그인 폼에 값을 설정하고 발행(submit) 한다.
-	        var securedLoginForm = document.getElementById("securedLoginForm");
-	        securedLoginForm.securedUserID.value = securedUserID;
-	        securedLoginForm.securedPassword.value = securedPassword;
-	        securedLoginForm.submit();
-	        
-	    } catch(err) {
-	        alert(err);
-	    }
-	    return false;
-};
-
-function submitEncryptedForm(userID, password, rsaPublicKeyModulus, rsaPublicKeyExponent) {
-    var rsa = new RSAKey();
-    rsa.setPublic(rsaPublicKeyModulus, rsaPublicKeyExponent);
-
-    // 사용자ID와 비밀번호를 RSA로 암호화한다.
-    var securedUserID = rsa.encrypt(userID);
-    var securedPassword = rsa.encrypt(password);
-
-    // POST 로그인 폼에 값을 설정하고 발행(submit) 한다.
-    var securedLoginForm = document.getElementById("securedLoginForm");
-    securedLoginForm.securedUserID.value = securedUserID;
-    securedLoginForm.securedPassword.value = securedPassword;
-    securedLoginForm.submit();
-}
-*/
 
 function validateEncryptedForm() {
     var userID = document.getElementById("userID").value;
@@ -229,29 +123,7 @@ function submitEncryptedForm(userID, password, rsaPublicKeyModulus, rsaPublicKey
 						<h2 style="text-align: center;" class="logo">MyCart</h2>
 						<h3 style="text-align: center;">지금 담아보세요</h3>
 						<div>&nbsp;</div>
-					
-						<!-- 유저가 입력하는 form 
-						<form action="<%=request.getContextPath()%>/decryptAction.go">
-							<label for="userID">사용자ID : <input type="text" class="form-control" name="userID" id="userID" placeholder="당신의 아이디" size="20"/></label>		
-							<label for="password">비밀번호 : <input type="password" class="form-control" name="password" id="password" placeholder="비밀번호" size="20" /></label>
-   							<input type="hidden" id="rsaPublicKeyModulus" value="<%=request.getAttribute("publicKeyModulus")%>" />
-         				    <input type="hidden" id="rsaPublicKeyExponent" value="<%=request.getAttribute("publicKeyExponent")%>" /> 							
-   							<input type="button" id="btn">로그인</input>
-						</form>
-					-->
-					
-						<!-- 실제 서버로 전송되는 form
-							<form id="securedLoginForm" name="securedLoginForm" action="<%=request.getContextPath()%>/decryptAction.go" method="post" >         					
-            					<label for="userID">사용자ID : <input type="text" class="form-control" name="userID" id="userID" placeholder="당신의 아이디" size="20"/></label>		
-								<label for="password">비밀번호 : <input type="password" class="form-control" name="password" id="password" placeholder="비밀번호" size="20" /></label>
-	   							<input type="hidden" id="rsaPublicKeyModulus" value="<%=request.getAttribute("publicKeyModulus")%>" />
-	         				    <input type="hidden" id="rsaPublicKeyExponent" value="<%=request.getAttribute("publicKeyExponent")%>" /> 							
-	   							<input type="button" onclick="RSAloginForm();" value="로그인">
-            					
-            					<input type="hidden" name="securedUserID" id="securedUserID" value="" />
-            					<input type="hidden" name="securedPassword" id="securedPassword" value="" />
-        					</form>
-     				     -->
+						
      				    <div>
 				            <label for="userID">사용자ID : <input type="text" id="userID" size="16"/></label>
 				            <label for="password">비밀번호 : <input type="password" id="password" size="16" /></label>
