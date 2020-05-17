@@ -45,7 +45,7 @@ MyCart 는 한정판 프리미엄 패션물품 판매 서비스인 [StockX](http
     5. 최종적으로 전송받은 암호화 코드는 session에 저장해둔 PrivateKey로 복호화하여 로그인을 진행한다.</br>
        (UserMemberDecryptAction.java의 코드 참조.)
   
-  - Javascript를 이용해 정규표현식으로 회원가입과 로그인 프로세스에 유효성 검사 기능 추가
+  - Javascript를 이용해 정규표현식으로 회원가입과 로그인 프로세스에 유효성 검사 기능 추가</br>
     (login.jsp의 Javascript코드 참조. 155-223번째 line)
 
 ## 향후 개선방안
