@@ -49,6 +49,6 @@ MyCart 는 한정판 프리미엄 패션물품 판매 서비스인 [StockX](http
     (login.jsp의 Javascript코드 참조. 155-223번째 line)
 
 ## 향후 개선방안
-- Oracle 12c&uarr; 혹은 MySQL 5.7.8&uarr; 로 DB환경 변경 &rarr; json 기반 데이터처리로 [DataTable](https://datatables.net/) 과 연동하여 기능 고도화
+- CSRF attack, Session Hijacking, XSS과 같은 보안 측면의 취약점을 고려하여 기능 보강
 - StringTokenization 활용한 포트폴리오 및 검색조건란 연계 검색 알고리즘 구축
 - 저장한 상품정보에 대한 시각화 정보 제공 (HighChart, d3 등)
