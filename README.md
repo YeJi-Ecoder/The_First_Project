@@ -31,18 +31,18 @@ MyCart 는 한정판 프리미엄 패션물품 판매 서비스인 [StockX](http
 ![순서도](Meetings/191203_UI회의/191203_UI_v1.0_SJ.png)
 
 ## 기여한 부분
-  - 회원 관리와 관련된 로그인, 회원가입 자바 모듈(src/user.member)
+  - 회원 관리와 관련된 로그인, 회원가입 자바 모듈(src/user.member)</br>
     JDBC를 위한 DAO, DTO 구성(src/user.db)
     
   - 로그인 모듈에 암복호화 기능 추가(비대칭키 방식 중 대표적인 RSA 방식을 활용)
     <Process>
-    1. index.jsp를 거친 후 controller에서 PublicKey와 PrivateKey를 생성한다. 이때 개인키는 session에 저장한다.
+    1. index.jsp를 거친 후 controller에서 PublicKey와 PrivateKey를 생성한다. 이때 개인키는 session에 저장한다.</br>
        (UserMemberEncryptAction.java의 코드 참조. Java의 security 라이브러리 활용.)
     2. PublicKey를 사용하여 modulus와 exponent를 생성하고 request에 담는다.
     3. 위와 같이 암호화를 위한 준비를 마친 후 login.jsp를 호출한다.
-    4. 클라이언트단에서 입력받은 정보들을 modulus, exponent로 RSA 암호화 하여 다시 서버로 전송한다.
+    4. 클라이언트단에서 입력받은 정보들을 modulus, exponent로 RSA 암호화 하여 다시 서버로 전송한다.</br>
        (login.jsp의 Javascript코드 참조. hidden form으로 이중폼 구성. 74-110번째 line)
-    5. 최종적으로 전송받은 암호화 코드는 session에 저장해둔 PrivateKey로 복호화하여 로그인을 진행한다.
+    5. 최종적으로 전송받은 암호화 코드는 session에 저장해둔 PrivateKey로 복호화하여 로그인을 진행한다.</br>
        (UserMemberDecryptAction.java의 코드 참조.)
   
   - Javascript를 이용해 정규표현식으로 회원가입과 로그인 프로세스에 유효성 검사 기능 추가
