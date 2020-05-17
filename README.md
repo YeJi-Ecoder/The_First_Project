@@ -40,9 +40,9 @@ MyCart 는 한정판 프리미엄 패션물품 판매 서비스인 [StockX](http
        (UserMemberEncryptAction.java의 코드 참조. Java의 security 라이브러리 활용.)
     2. PublicKey를 사용하여 modulus와 exponent를 생성하고 request에 담는다.
     3. 위와 같이 암호화를 위한 준비를 마친 후 login.jsp를 호출한다.
-    4. 클라이언트단에서 입력받은 아이디와 비밀번호등의 정보들을 modulus, exponent로 RSA 암호화 하여 다시 서버로 전송한다.
+    4. 클라이언트단에서 입력받은 정보들을 modulus, exponent로 RSA 암호화 하여 다시 서버로 전송한다.
        (login.jsp의 Javascript코드 참조. hidden form으로 이중폼 구성. 74-110번째 line)
-    5. 최종적으로 전송받은 암호화 코드는 session에 저장해둔 PrivateKey로 복호화하여 가입 여부를 확인 후 로그인을 진행한다.
+    5. 최종적으로 전송받은 암호화 코드는 session에 저장해둔 PrivateKey로 복호화하여 로그인을 진행한다.
        (UserMemberDecryptAction.java의 코드 참조.)
   
   - Javascript를 이용해 정규표현식으로 회원가입과 로그인 프로세스에 유효성 검사 기능 추가
