@@ -38,7 +38,7 @@ MyCart 는 한정판 프리미엄 패션물품 판매 서비스인 [StockX](http
     <Process>
     1. index.jsp를 거친 후 controller에서 PublicKey와 PrivateKey를 생성한다. 이때 개인키는 session에 저장한다.</br>
        (UserMemberEncryptAction.java의 코드 참조. Java의 security 라이브러리 활용.)
-    2. PublicKey를 사용하여 modulus와 exponent를 생성하고 request에 담는다.
+    2. PublicKey로 modulus와 exponent를 생성하고 request 객체를 이용해 클라이언트와 공유한다.
     3. 위와 같이 암호화를 위한 준비를 마친 후 login.jsp를 호출한다.
     4. 클라이언트단에서 입력받은 정보들을 modulus, exponent로 RSA 암호화 하여 다시 서버로 전송한다.</br>
        (login.jsp의 Javascript코드 참조. hidden form으로 이중폼 구성. 74-110번째 line)
@@ -50,5 +50,5 @@ MyCart 는 한정판 프리미엄 패션물품 판매 서비스인 [StockX](http
 
 ## 향후 개선방안
 - CSRF attack, Session Hijacking, XSS과 같은 보안 측면의 취약점을 고려하여 기능 보강
-- StringTokenization 활용한 포트폴리오 및 검색조건란 연계 검색 알고리즘 구축
+- 전자 서명, 인증 과정 추가
 - 저장한 상품정보에 대한 시각화 정보 제공 (HighChart, d3 등)
